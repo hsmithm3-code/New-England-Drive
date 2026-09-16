@@ -1,172 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New England Drive & Race</title>
-    <style>
-        :root {
-            --cream: #FFFDD0;
-            --off-white: #F9F7F1;
-            --chocolate-brown: #3E2723;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New England Drive</title>
+  <style>
+    :root {
+      --bg-color: #f7f5f0;        /* Off-white */
+      --text-color: #2b1e16;      /* Dark chocolate brown */
+      --accent-color: #4a3427;    /* Medium warm brown */
+      --border-color: #dcd7ce;    /* Soft neutral border */
+      --font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+    }
 
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--off-white);
-            color: var(--chocolate-brown);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            background-color: var(--cream);
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--chocolate-brown);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+    header {
+      border-bottom: 1px solid var(--border-color);
+      padding: 2.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--bg-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-        nav a {
-            color: var(--chocolate-brown);
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 16px;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
+    .logo {
+      font-size: 1.25rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
 
-        nav a:hover {
-            opacity: 0.7;
-        }
+    nav a {
+      color: var(--text-color);
+      margin-left: 2.5rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
 
-        .container {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 60px 80px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    nav a:hover {
+      opacity: 0.6;
+    }
 
-        .text-section {
-            flex: 1;
-            max-width: 500px;
-        }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
 
-        h1 {
-            font-size: 42px;
-            line-height: 1.2;
-            margin-bottom: 25px;
-        }
+    section {
+      margin-bottom: 8rem;
+    }
 
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 40px;
-        }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      margin-bottom: 2rem;
+      text-transform: capitalize;
+    }
 
-        .btn {
-            background-color: var(--chocolate-brown);
-            color: var(--cream);
-            padding: 15px 30px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.3s;
-        }
+    p {
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+      opacity: 0.9;
+    }
 
-        .btn:hover {
-            transform: scale(1.05);
-        }
+    /* Schedule List Styling */
+    .schedule-list {
+      margin-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
 
-        .image-section {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-            margin-left: 40px;
-        }
+    .schedule-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
 
-        .image-section img {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid var(--chocolate-brown);
-        }
+    .schedule-date {
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
 
-        footer {
-            background-color: var(--cream);
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid var(--chocolate-brown);
-            font-size: 14px;
-        }
+    .schedule-title {
+      font-size: 1.1rem;
+    }
 
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                padding: 40px 20px;
-                text-align: center;
-            }
+    /* Shop Grid Layout */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem 2rem;
+      margin-top: 3rem;
+    }
 
-            .image-section {
-                justify-content: center;
-                margin-left: 0;
-                margin-top: 40px;
-            }
+    .product-card {
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
 
-            header {
-                justify-content: center;
-            }
+    .product-image-placeholder {
+      width: 100%;
+      height: 200px;
+      background-color: #ede8df;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: var(--accent-color);
+    }
 
-            nav {
-                display: none;
-            }
-        }
-    </style>
+    .product-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+
+    .product-price {
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      color: var(--accent-color);
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
 </head>
 <body>
 
-<header>
+  <header>
     <div class="logo">New England Drive</div>
     <nav>
-        <a href="#">Shop</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Schedule</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
-</header>
+  </header>
 
-<main class="container">
-    <div class="text-section">
-        <h1>Welcome to New England Drive.</h1>
-        <p>We connect auto enthusiasts with commercial-grade sim racing technology. Whether you are building your first setup or upgrading your sim rig, we provide tailored consultation, seamless integration, and high-value hardware crafted for performance.</p>
-        <a href="#" class="btn">Book a Consultation</a>
-    </div>
-    <div class="image-section">
-        <img src="your-f1-photo-url.jpg" alt="Formula One Car">
-    </div>
-</main>
+  <div class="container">
+    
+    <!-- Hero / Intro -->
+    <section id="home">
+      <h1>New England Drive</h1>
+      <p>Curated automotive experiences, specialized consultancy, and refined goods for those who appreciate the art of driving.</p>
+    </section>
 
-<footer>
-    <p>&copy; 2026 New England Drive. All rights reserved.</p>
-</footer>
+    <!-- Schedule Section -->
+    <section id="schedule">
+      <h1>Schedule</h1>
+      <p>Upcoming driving tours, private track days, and seasonal gatherings.</p>
+      
+      <div class="schedule-list">
+        <div class="schedule-item">
+          <div>
+            <div class="schedule-date">May 2026</div>
+            <div class="schedule-title">Spring Coastline Tour</div>
+          </div>
+          <span>Inquire</span>
+        </div>
+        <div class="schedule-item">
+          <div>
+            <div class="schedule-date">July 2026</div>
+            <div class="schedule-title">Berkshires Private Drive</div>
+          </div>
+          <span>Inquire</span>
+        </div>
+        <div class="schedule-item">
+          <div>
+            <div class="schedule-date">October 2026</div>
+            <div class="schedule-title">Autumn Foliage Rally</div>
+          </div>
+          <span>Inquire</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop">
+      <h1>Shop</h1>
+      <p>A selection of essential goods, bespoke accessories, and driving experiences.</p>
+      
+      <div class="shop-grid">
+        <div class="product-card">
+          <div class="product-image-placeholder">ITEM 01</div>
+          <div class="product-title">Leather Driving Gloves</div>
+          <div class="product-price">$185</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image-placeholder">ITEM 02</div>
+          <div class="product-title">Weekend Travel Bag</div>
+          <div class="product-price">$650</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image-placeholder">ITEM 03</div>
+          <div class="product-title">Curated Route Guidebook</div>
+          <div class="product-price">$45</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h1>About</h1>
+      <p>New England Drive offers tailored services and bespoke automotive journeys across the region's finest roads.</p>
+      <p>Rooted in an appreciation for understated quality and precision engineering, we connect enthusiasts with uncompromised experiences, advice, and gear.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h1>Contact</h1>
+      <p>For inquiries regarding route planning, consultancy services, or shop orders, please reach out directly.</p>
+      <p><strong>Email:</strong> contact@newenglanddrive.com</p>
+    </section>
+
+  </div>
+
+  <footer>
+    &copy; 2026 New England Drive. All rights reserved.
+  </footer>
 
 </body>
 </html>
