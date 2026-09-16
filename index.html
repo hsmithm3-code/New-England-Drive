@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New England Drive & Race</title>
+    <style>
+        :root {
+            --cream: #FFFDD0;
+            --off-white: #F9F7F1;
+            --chocolate-brown: #3E2723;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--off-white);
+            color: var(--chocolate-brown);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--cream);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--chocolate-brown);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: var(--chocolate-brown);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-section {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            background-color: var(--chocolate-brown);
+            color: var(--cream);
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .image-section {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            margin-left: 40px;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid var(--chocolate-brown);
+        }
+
+        footer {
+            background-color: var(--cream);
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid var(--chocolate-brown);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .image-section {
+                justify-content: center;
+                margin-left: 0;
+                margin-top: 40px;
+            }
+
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">New England Drive</div>
+    <nav>
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Schedule</a>
+    </nav>
+</header>
+
+<main class="container">
+    <div class="text-section">
+        <h1>Welcome to New England Drive.</h1>
+        <p>We connect auto enthusiasts with commercial-grade sim racing technology. Whether you are building your first setup or upgrading your sim rig, we provide tailored consultation, seamless integration, and high-value hardware crafted for performance.</p>
+        <a href="#" class="btn">Book a Consultation</a>
+    </div>
+    <div class="image-section">
+        <img src="your-f1-photo-url.jpg" alt="Formula One Car">
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 New England Drive. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
