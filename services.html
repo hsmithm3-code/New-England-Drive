@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — New England Drive</title>
+  <style>
+    :root {
+      --bg-color: #f7f5f0;
+      --header-bg: #2b1e16;
+      --header-text: #f7f5f0;
+      --text-color: #2b1e16;
+      --accent-color: #5c4333;
+      --border-color: #e2ddd5;
+      --font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 2.25rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-container { display: flex; flex-direction: column; }
+
+    .logo-link {
+      color: var(--header-text);
+      text-decoration: none;
+      font-size: 1.15rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1.2;
+      transition: opacity 0.3s ease;
+    }
+
+    .tagline {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--header-text);
+      opacity: 0.75;
+      margin-top: 0.25rem;
+      font-weight: 300;
+    }
+
+    .logo-link:hover { opacity: 0.8; }
+
+    nav a {
+      color: var(--header-text);
+      margin-left: 2.75rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a.active { border-bottom: 1px solid var(--header-text); padding-bottom: 4px; }
+    nav a:hover { opacity: 0.75; }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 2.5rem;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 300;
+      letter-spacing: 1.5px;
+      margin-bottom: 3.5rem;
+    }
+
+    .service-category {
+      margin-bottom: 4rem;
+    }
+
+    .category-title {
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.75rem;
+    }
+
+    .service-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.85rem 0;
+      border-bottom: 1px dotted var(--border-color);
+    }
+
+    .service-name {
+      font-size: 1.05rem;
+    }
+
+    .service-price {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--accent-color);
+    }
+
+    .services-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .services-table th, .services-table td {
+      padding: 1.25rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .services-table th {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      font-weight: 400;
+    }
+
+    .services-table td {
+      font-size: 1rem;
+    }
+
+    .price-col {
+      width: 130px;
+      white-space: nowrap;
+    }
+
+    .cta-container {
+      text-align: center;
+      margin-top: 5rem;
+      padding: 3rem;
+      border: 1px solid var(--border-color);
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .cta-container p {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn-cta:hover { opacity: 0.85; }
+
+    footer {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      text-align: center;
+      padding: 3.5rem 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 7rem;
+    }
+
+    @media (max-width: 900px) {
+      header { padding: 1.75rem 2rem; flex-direction: column; gap: 1.25rem; text-align: center; }
+      .brand-container { align-items: center; }
+      nav a { margin: 0 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-container">
+      <a href="index.html" class="logo-link">New England Drive</a>
+      <span class="tagline">Sim racing specialist</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="shop.html">Shop</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <span class="section-tag">Offerings &amp; Rates</span>
+    <h1>Consulting &amp; Services</h1>
+
+    <!-- 1. Consultation & Advisory -->
+    <div class="service-category">
+      <h2 class="category-title">1. Consultation &amp; Advisory Services</h2>
+      <ul class="service-list">
+        <li class="service-item">
+          <span class="service-name">Initial Consultation (20 Min)</span>
+          <span class="service-price">Free</span>
+        </li>
+        <li class="service-item">
+          <span class="service-name">30-Minute Consultation Session</span>
+          <span class="service-price">$75</span>
+        </li>
+        <li class="service-item">
+          <span class="service-name">1-Hour Remote Consultation</span>
+          <span class="service-price">$140</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2. Driver Coaching -->
+    <div class="service-category">
+      <h2 class="category-title">2. Driver Coaching</h2>
+      <ul class="service-list">
+        <li class="service-item">
+          <span class="service-name">1-Hour Remote Coaching</span>
+          <span class="service-price">$100 / hr</span>
+        </li>
+        <li class="service-item">
+          <span class="service-name">Coaching Package (3 Hours)</span>
+          <span class="service-price">$250</span>
+        </li>
+        <li class="service-item">
+          <span class="service-name">In-Person Coaching</span>
+          <span class="service-price">$200 / hr</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 3. Full Turn-Key -->
+    <div class="service-category">
+      <h2 class="category-title">3. Full Turn-Key Systems</h2>
+      <table class="services-table">
+        <thead>
+          <tr>
+            <th>Tier / Service</th>
+            <th class="price-col">Price</th>
+            <th>Includes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Virtual Build Design &amp; Spec</strong></td>
+            <td class="price-col">$500</td>
+            <td>Component selection, ergonomics evaluation, room placement analysis, and shopping list curation.</td>
+          </tr>
+          <tr>
+            <td><strong>Local In-Person Assembly &amp; PC Configuration</strong></td>
+            <td class="price-col">$1,500</td>
+            <td>Building aluminum profile chassis, mounting direct-drive wheelbases/pedals, cable management, PC setup, and FOV/triples calibration.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cta-container">
+      <p>Ready to get started? Schedule a free initial consultation to discuss your project.</p>
+      <a href="schedule.html" class="btn-cta">Schedule Consultation</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 New England Drive. All rights reserved.
+  </footer>
+
+</body>
+</html>
