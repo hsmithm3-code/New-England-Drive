@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule Consultation — New England Drive</title>
+  <style>
+    :root {
+      --bg-color: #f7f5f0;
+      --header-bg: #2b1e16;
+      --header-text: #f7f5f0;
+      --text-color: #2b1e16;
+      --accent-color: #5c4333;
+      --border-color: #e2ddd5;
+      --font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 2.25rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-container { display: flex; flex-direction: column; }
+
+    .logo-link {
+      color: var(--header-text);
+      text-decoration: none;
+      font-size: 1.15rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1.2;
+      transition: opacity 0.3s ease;
+    }
+
+    .tagline {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--header-text);
+      opacity: 0.75;
+      margin-top: 0.25rem;
+      font-weight: 300;
+    }
+
+    .logo-link:hover { opacity: 0.8; }
+
+    nav a {
+      color: var(--header-text);
+      margin-left: 2.75rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a.active { border-bottom: 1px solid var(--header-text); padding-bottom: 4px; }
+    nav a:hover { opacity: 0.75; }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 6rem 2.5rem;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 300;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.5rem;
+    }
+
+    .body-text {
+      font-size: 1.05rem;
+      margin-bottom: 3.5rem;
+      opacity: 0.9;
+    }
+
+    .booking-box {
+      border: 1px solid var(--border-color);
+      padding: 3.5rem 3rem;
+      background-color: rgba(255, 255, 255, 0.4);
+      text-align: center;
+    }
+
+    .booking-box h2 {
+      font-size: 1.4rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .booking-box p {
+      font-size: 0.95rem;
+      color: var(--accent-color);
+      margin-bottom: 2rem;
+    }
+
+    .schedule-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: left;
+    }
+
+    label {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+    }
+
+    input[type="email"], input[type="text"] {
+      width: 100%;
+      padding: 1rem;
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      font-family: var(--font-family);
+      font-size: 1rem;
+      color: var(--text-color);
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="email"]:focus, input[type="text"]:focus {
+      border-color: var(--header-bg);
+    }
+
+    .btn-submit {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2.5rem;
+      border: none;
+      font-family: var(--font-family);
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+      margin-top: 0.5rem;
+    }
+
+    .btn-submit:hover { opacity: 0.85; }
+
+    footer {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      text-align: center;
+      padding: 3.5rem 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 7rem;
+    }
+
+    @media (max-width: 900px) {
+      header { padding: 1.75rem 2rem; flex-direction: column; gap: 1.25rem; text-align: center; }
+      .brand-container { align-items: center; }
+      nav a { margin: 0 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-container">
+      <a href="index.html" class="logo-link">New England Drive</a>
+      <span class="tagline">Sim racing specialist</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="schedule.html" class="active">Schedule</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <span class="section-tag">Tailored Services</span>
+    <h1>Schedule a Consultation</h1>
+    <p class="body-text">Please reach out to schedule a free 20 min consultation.</p>
+
+    <div class="booking-box">
+      <h2>Request a Consultation</h2>
+      <p>Leave your contact information below and we will reach out directly to arrange a private session.</p>
+
+      <form class="schedule-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Full Name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="name@example.com" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Request Appointment</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 New England Drive. All rights reserved.
+  </footer>
+
+</body>
+</html>
