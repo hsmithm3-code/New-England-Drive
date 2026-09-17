@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — New England Drive</title>
+  <style>
+    :root {
+      --bg-color: #f7f5f0;
+      --header-bg: #2b1e16;
+      --header-text: #f7f5f0;
+      --text-color: #2b1e16;
+      --accent-color: #5c4333;
+      --border-color: #e2ddd5;
+      --font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 2.25rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-container { display: flex; flex-direction: column; }
+
+    .logo-link {
+      color: var(--header-text);
+      text-decoration: none;
+      font-size: 1.15rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1.2;
+      transition: opacity 0.3s ease;
+    }
+
+    .tagline {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--header-text);
+      opacity: 0.75;
+      margin-top: 0.25rem;
+      font-weight: 300;
+    }
+
+    .logo-link:hover { opacity: 0.8; }
+
+    nav a {
+      color: var(--header-text);
+      margin-left: 2.75rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a.active { border-bottom: 1px solid var(--header-text); padding-bottom: 4px; }
+    nav a:hover { opacity: 0.75; }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 6rem 2.5rem;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 300;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-text {
+      font-size: 1.05rem;
+      margin-bottom: 3rem;
+      opacity: 0.9;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    label {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      font-family: var(--font-family);
+      font-size: 1rem;
+      color: var(--text-color);
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--header-bg);
+    }
+
+    textarea { resize: vertical; min-height: 150px; }
+
+    .btn-submit {
+      align-self: flex-start;
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 3rem;
+      border: none;
+      font-family: var(--font-family);
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .btn-submit:hover { opacity: 0.85; }
+
+    footer {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      text-align: center;
+      padding: 3.5rem 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 7rem;
+    }
+
+    @media (max-width: 900px) {
+      header { padding: 1.75rem 2rem; flex-direction: column; gap: 1.25rem; text-align: center; }
+      .brand-container { align-items: center; }
+      nav a { margin: 0 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-container">
+      <a href="index.html" class="logo-link">New England Drive</a>
+      <span class="tagline">Sim racing specialist</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <span class="section-tag">Direct Inquiries</span>
+    <h1>Get in Touch</h1>
+    <p class="intro-text">For hardware availability, custom build consultations, or general inquiries, please submit your message below.</p>
+
+    <form class="contact-form" action="#" method="POST">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Send Inquiry</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2026 New England Drive. All rights reserved.
+  </footer>
+
+</body>
+</html>
