@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New England Drive — Sim Racing Specialist</title>
+  <style>
+    :root {
+      --bg-color: #f7f5f0;        /* Off-white */
+      --header-bg: #2b1e16;      /* Dark chocolate brown */
+      --header-text: #f7f5f0;    /* Off-white text */
+      --text-color: #2b1e16;      /* Dark chocolate body text */
+      --accent-color: #5c4333;    /* Warm muted brown accent */
+      --border-color: #e2ddd5;    /* Subtle soft border */
+      --font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Dark Chocolate Header */
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 2.25rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-link {
+      color: var(--header-text);
+      text-decoration: none;
+      font-size: 1.15rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1.2;
+      transition: opacity 0.3s ease;
+    }
+
+    .tagline {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--header-text);
+      opacity: 0.75;
+      margin-top: 0.25rem;
+      font-weight: 300;
+    }
+
+    .logo-link:hover { opacity: 0.8; }
+
+    nav a {
+      color: var(--header-text);
+      margin-left: 2.75rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a.active {
+      border-bottom: 1px solid var(--header-text);
+      padding-bottom: 4px;
+    }
+
+    nav a:hover { opacity: 0.75; }
+
+    /* Main Container & Luxury Layout */
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 6rem 2.5rem;
+    }
+
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .image-wrapper {
+      width: 100%;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(43, 30, 22, 0.03);
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .content-wrapper {
+      padding-left: 1rem;
+    }
+
+    .sub-title {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 300;
+      letter-spacing: 1.5px;
+      line-height: 1.35;
+      margin-bottom: 1.75rem;
+      color: var(--text-color);
+    }
+
+    .body-text {
+      font-size: 1.05rem;
+      color: var(--text-color);
+      opacity: 0.9;
+      font-weight: 400;
+    }
+
+    /* Dark Chocolate Footer */
+    footer {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      text-align: center;
+      padding: 3.5rem 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 7rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      header { padding: 1.75rem 2rem; flex-direction: column; gap: 1.25rem; text-align: center; }
+      .brand-container { align-items: center; }
+      nav a { margin: 0 0.85rem; }
+      .split-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .content-wrapper { padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-container">
+      <a href="index.html" class="logo-link">New England Drive</a>
+      <span class="tagline">Sim racing specialist</span>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="split-layout">
+      
+      <!-- F1 Photo on Left -->
+      <div class="image-wrapper">
+        <img src="JB2008.jpg" alt="Honda Formula 1 racing car on track">
+      </div>
+
+      <!-- Company Content on Right -->
+      <div class="content-wrapper">
+        <span class="sub-title">Consultancy and premium hardware</span>
+        <h1>Welcome to New England Drive</h1>
+        <p class="body-text">
+          We connect auto enthusiasts with commercial-grade sim racing technology. Whether you are building your first setup or upgrading your sim rig, we provide tailored consultation, seamless integration, and high-value hardware crafted for performance.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 New England Drive. All rights reserved.
+  </footer>
+
+</body>
+</html>
