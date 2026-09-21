@@ -159,6 +159,48 @@
       .content-wrapper { padding-left: 0; }
     }
   </style>
+  /* Partner Badge Section */
+.partner-section {
+  margin-top: 5rem;
+  padding-top: 3.5rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.partner-tag {
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  display: block;
+}
+
+.partner-logo-container {
+  max-width: 210px;
+  margin: 0 auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.partner-logo-container:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.partner-logo-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply; /* Blends white logo backgrounds seamlessly into off-white pages */
+}
+
+.partner-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 1.25rem;
+  font-style: italic;
+}
 </head>
 <body>
 
@@ -194,6 +236,15 @@
       </div>
 
     </div>
+    
+    <section class="partner-section">
+      <span class="partner-tag">Authorized Dealer &amp; Integration Partner</span>
+      <div class="partner-logo-container">
+        <img src="2.20.26_Sabelt Sim Racing3.png" alt="Sabelt Sim Racing Authorized Dealer">
+      </div>
+      <p class="partner-desc">Official supplier of Sabelt sim racing cockpits, seats, and hardware.</p>
+    </section>
+    
   </main>
 
   <footer>
