@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — Sabelt Sim Racing Hardware | New England Drive</title>
+  <style>
+    :root {
+      --bg-color: #f7f5f0;        /* Off-white */
+      --header-bg: #2b1e16;      /* Dark chocolate brown */
+      --header-text: #f7f5f0;    /* Off-white text */
+      --text-color: #2b1e16;      /* Dark chocolate body text */
+      --accent-color: #5c4333;    /* Warm muted brown accent */
+      --border-color: #e2ddd5;    /* Soft neutral border */
+      --card-bg: #ffffff;
+      --font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Dark Chocolate Header */
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 2.25rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-link {
+      color: var(--header-text);
+      text-decoration: none;
+      font-size: 1.15rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1.2;
+      transition: opacity 0.3s ease;
+    }
+
+    .tagline {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--header-text);
+      opacity: 0.75;
+      margin-top: 0.25rem;
+      font-weight: 300;
+    }
+
+    .logo-link:hover { opacity: 0.8; }
+
+    nav a {
+      color: var(--header-text);
+      margin-left: 2.75rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a.active {
+      border-bottom: 1px solid var(--header-text);
+      padding-bottom: 4px;
+    }
+
+    nav a:hover { opacity: 0.75; }
+
+    /* Layout */
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 6rem;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .sub-title {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 300;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.25rem;
+      color: var(--text-color);
+    }
+
+    .intro-text {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--text-color);
+      opacity: 0.85;
+    }
+
+    /* Controls: Filter & Search */
+    .shop-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 0.5rem 1.25rem;
+      font-family: var(--font-family);
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      border-color: var(--header-bg);
+    }
+
+    .search-input {
+      padding: 0.55rem 1rem;
+      border: 1px solid var(--border-color);
+      background-color: #fff;
+      font-family: var(--font-family);
+      font-size: 0.85rem;
+      width: 260px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-color);
+    }
+
+    /* Category Section */
+    .category-group {
+      margin-bottom: 4rem;
+    }
+
+    .category-title {
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--header-bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .category-count {
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      color: var(--accent-color);
+      font-weight: 300;
+    }
+
+    /* Grid Layout */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .product-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(43, 30, 22, 0.06);
+    }
+
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+
+    .product-code {
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      font-family: monospace;
+    }
+
+    .badge {
+      font-size: 0.6rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+      font-family: sans-serif;
+      font-weight: 600;
+    }
+
+    .badge-stock { background-color: #e8f5e9; color: #2e7d32; }
+    .badge-preorder { background-color: #fff3e0; color: #e65100; }
+    .badge-limited { background-color: #ffebee; color: #c62828; }
+
+    .product-name {
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 1.25rem;
+      color: var(--text-color);
+    }
+
+    .product-subgroup {
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .product-price {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text-color);
+    }
+
+    .map-tag {
+      font-size: 0.6rem;
+      letter-spacing: 1px;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      margin-left: 0.25rem;
+    }
+
+    .inquire-btn {
+      color: var(--header-bg);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--header-bg);
+      padding-bottom: 2px;
+      transition: opacity 0.3s ease;
+    }
+
+    .inquire-btn:hover { opacity: 0.6; }
+
+    .no-results {
+      text-align: center;
+      padding: 4rem 1rem;
+      font-size: 1.05rem;
+      color: var(--accent-color);
+      display: none;
+    }
+
+    /* Partner Banner */
+    .dealer-banner {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 3rem 2rem;
+      margin-top: 5rem;
+      text-align: center;
+      border-radius: 2px;
+    }
+
+    .dealer-banner h2 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .dealer-banner p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 650px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .contact-cta-btn {
+      display: inline-block;
+      background-color: var(--header-text);
+      color: var(--header-bg);
+      padding: 0.75rem 2rem;
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-cta-btn:hover { opacity: 0.85; }
+
+    /* Dark Chocolate Footer */
+    footer {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      text-align: center;
+      padding: 3.5rem 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 5rem;
+    }
+
+    @media (max-width: 900px) {
+      header { padding: 1.75rem 2rem; flex-direction: column; gap: 1.25rem; text-align: center; }
+      .brand-container { align-items: center; }
+      nav a { margin: 0 0.85rem; }
+      .shop-controls { flex-direction: column; align-items: stretch; }
+      .search-input { width: 100%; }
+      .product-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-container">
+      <a href="index.html" class="logo-link">New England Drive</a>
+      <span class="tagline">Sim racing specialist</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <div class="page-header">
+      <span class="sub-title">Authorized Dealer &amp; Integration Partner</span>
+      <h1>Sabelt Sim Racing Hardware</h1>
+      <p class="intro-text">
+        Explore commercial-grade cockpits, racing seats, precision mounting systems, and driver apparel engineered by Sabelt. All prices reflect official Minimum Advertised Pricing (MAP). Contact us for bundled system integration and bespoke cockpit setup.
+      </p>
+    </div>
+
+    <!-- Shop Controls -->
+    <div class="shop-controls">
+      <div class="filter-tabs">
+        <button class="filter-btn active" onclick="filterCategory('ALL')">All Products</button>
+        <button class="filter-btn" onclick="filterCategory('COCKPITS')">Cockpits</button>
+        <button class="filter-btn" onclick="filterCategory('SEATS')">Seats</button>
+        <button class="filter-btn" onclick="filterCategory('ACCESSORIES')">Mounts &amp; Accessories</button>
+        <button class="filter-btn" onclick="filterCategory('EQUIPMENTS')">Apparel &amp; Gear</button>
+      </div>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search catalog..." onkeyup="searchCatalog()">
+    </div>
+
+    <div id="noResults" class="no-results">No hardware matching your search query.</div>
+
+    <!-- Cockpits Category -->
+    <section class="category-group" data-cat="COCKPITS">
+      <div class="category-title">
+        <span>Cockpits</span>
+        <span class="category-count">5 Items</span>
+      </div>
+      <div class="product-grid">
+
+        <div class="product-card" data-search="sabelt s97 grey 00000-03-01 cockpit">
+          <div>
+            <div class="product-header">
+              <span class="product-code">00000-03-01</span>
+              <span class="badge badge-limited">Discontinued</span>
+            </div>
+            <div class="product-subgroup">S Series Cockpits</div>
+            <h3 class="product-name">Sabelt S97 — Grey</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$679</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00000-03-01" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt s99 evo i black 00000-04-01 cockpit">
+          <div>
+            <div class="product-header">
+              <span class="product-code">00000-04-01</span>
+            </div>
+            <div class="product-subgroup">S Series Cockpits</div>
+            <h3 class="product-name">Sabelt S99 EVO I — Black</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$1,279</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00000-04-01" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt p99 evo i black 00001-04-02 cockpit">
+          <div>
+            <div class="product-header">
+              <span class="product-code">00001-04-02</span>
+            </div>
+            <div class="product-subgroup">P Series Cockpits</div>
+            <h3 class="product-name">Sabelt P99 EVO I — Black</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$1,279</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00001-04-02" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt x99 evo i black 00002-04-03 cockpit">
+          <div>
+            <div class="product-header">
+              <span class="product-code">00002-04-03</span>
+            </div>
+            <div class="product-subgroup">X Series Cockpits</div>
+            <h3 class="product-name">Sabelt X99 EVO I — Black</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$1,279</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00002-04-03" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt lit3 black 00003-04-03 cockpit">
+          <div>
+            <div class="product-header">
+              <span class="product-code">00003-04-03</span>
+              <span class="badge badge-preorder">Pre-Order</span>
+            </div>
+            <div class="product-subgroup">LIT3 Series Cockpits</div>
+            <h3 class="product-name">Sabelt LIT3 — Black</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$799</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00003-04-03" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Seats Category -->
+    <section class="category-group" data-cat="SEATS">
+      <div class="category-title">
+        <span>Seats &amp; Padding Kits</span>
+        <span class="category-count">21 Items</span>
+      </div>
+      <div class="product-grid">
+
+        <div class="product-card" data-search="sabelt srs-1 deep black 00210-01-01-blk seat">
+          <div>
+            <div class="product-header"><span class="product-code">00210-01-01-BLK</span></div>
+            <div class="product-subgroup">S Series Seat</div>
+            <h3 class="product-name">Sabelt SRS-1 Deep Black (Blk Seat + Blk Pads)</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$699</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00210-01-01-BLK" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt srs-1 racing yellow 00210-01-01-yel seat">
+          <div>
+            <div class="product-header"><span class="product-code">00210-01-01-YEL</span></div>
+            <div class="product-subgroup">S Series Seat</div>
+            <h3 class="product-name">Sabelt SRS-1 Racing Yellow (Blk Seat + Yellow Pads)</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$699</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00210-01-01-YEL" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt srs-1 racing black 00210-01-01-rbk seat">
+          <div>
+            <div class="product-header"><span class="product-code">00210-01-01-RBK</span></div>
+            <div class="product-subgroup">S Series Seat</div>
+            <h3 class="product-name">Sabelt SRS-1 Racing Black (Yellow Seat + Blk Pads)</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$699</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00210-01-01-RBK" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt srp-1 deep black 00211-01-02-blk seat">
+          <div>
+            <div class="product-header"><span class="product-code">00211-01-02-BLK</span></div>
+            <div class="product-subgroup">P Series Seat</div>
+            <h3 class="product-name">Sabelt SRP-1 Deep Black (Blk Seat + Blk Pads)</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$749</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00211-01-02-BLK" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt srp-1 racing red 00211-01-02-rbk seat">
+          <div>
+            <div class="product-header"><span class="product-code">00211-01-02-RBK</span></div>
+            <div class="product-subgroup">P Series Seat</div>
+            <h3 class="product-name">Sabelt SRP-1 Racing Red (Blk Seat + Red Pads)</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$749</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00211-01-02-RBK" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt srx-1 deep black 00212-01-03-blk seat">
+          <div>
+            <div class="product-header"><span class="product-code">00212-01-03-BLK</span></div>
+            <div class="product-subgroup">X Series Seat</div>
+            <h3 class="product-name">Sabelt SRX-1 Deep Black (Blk Seat + Blk Pads)</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$899</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00212-01-03-BLK" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt sim seat brackets 00213-01-00">
+          <div>
+            <div class="product-header"><span class="product-code">00213-01-00</span></div>
+            <div class="product-subgroup">Seat Accessories</div>
+            <h3 class="product-name">Sabelt Sim Seat Brackets</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$109</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00213-01-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt srs srx seat slider 00213-10-02">
+          <div>
+            <div class="product-header"><span class="product-code">00213-10-02</span></div>
+            <div class="product-subgroup">Seat Accessories</div>
+            <h3 class="product-name">Sabelt SRS / SRX Seat Slider</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$99</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00213-10-02" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt seat insert foam kit seat bottom 00213-11-01">
+          <div>
+            <div class="product-header">
+              <span class="product-code">00213-11-01</span>
+              <span class="badge badge-stock">In Stock</span>
+            </div>
+            <div class="product-subgroup">Seat Accessories</div>
+            <h3 class="product-name">Sabelt Seat Insert Foam Kit — Seat Bottom</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$239</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00213-11-01" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt memory foam kit lumbar 00213-11-03">
+          <div>
+            <div class="product-header">
+              <span class="product-code">00213-11-03</span>
+              <span class="badge badge-stock">In Stock</span>
+            </div>
+            <div class="product-subgroup">Seat Accessories</div>
+            <h3 class="product-name">Sabelt Memory Foam Kit — Lumbar</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$199</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00213-11-03" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Mounts & Accessories Category -->
+    <section class="category-group" data-cat="ACCESSORIES">
+      <div class="category-title">
+        <span>Mounts &amp; Accessories</span>
+        <span class="category-count">28 Items</span>
+      </div>
+      <div class="product-grid">
+
+        <div class="product-card" data-search="wheel deck 00103-01-00">
+          <div>
+            <div class="product-header"><span class="product-code">00103-01-00</span></div>
+            <div class="product-subgroup">Wheel Mounts</div>
+            <h3 class="product-name">Sabelt Wheel Deck</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$139</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00103-01-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="dd wheel front mount 00103-02-00">
+          <div>
+            <div class="product-header"><span class="product-code">00103-02-00</span></div>
+            <div class="product-subgroup">Wheel Mounts</div>
+            <h3 class="product-name">DD Wheel Front Mount</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$229</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00103-02-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="asetek wheel front mount 00103-04-00">
+          <div>
+            <div class="product-header"><span class="product-code">00103-04-00</span></div>
+            <div class="product-subgroup">Wheel Mounts</div>
+            <h3 class="product-name">Asetek Wheel Front Mount</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$229</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00103-04-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="ultra pedal mount 00104-06-00">
+          <div>
+            <div class="product-header"><span class="product-code">00104-06-00</span></div>
+            <div class="product-subgroup">Pedal Mounts</div>
+            <h3 class="product-name">Sabelt Ultra Pedal Mount</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$379</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00104-06-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="inverted adjustable pedal mount 00104-07-00">
+          <div>
+            <div class="product-header"><span class="product-code">00104-07-00</span></div>
+            <div class="product-subgroup">Pedal Mounts</div>
+            <h3 class="product-name">Inverted Adjustable Pedal Mount</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$499</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00104-07-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="single monitor direct mount 00105-12-00">
+          <div>
+            <div class="product-header"><span class="product-code">00105-12-00</span></div>
+            <div class="product-subgroup">Monitor Stands</div>
+            <h3 class="product-name">Single Monitor Direct Mount</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$379</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00105-12-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="triple monitor direct mount 00105-13-00">
+          <div>
+            <div class="product-header"><span class="product-code">00105-13-00</span></div>
+            <div class="product-subgroup">Monitor Stands</div>
+            <h3 class="product-name">Triple Monitor Direct Mount</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$549</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00105-13-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="freestanding triple ultra monitor stand 00105-18-00">
+          <div>
+            <div class="product-header">
+              <span class="product-code">00105-18-00</span>
+              <span class="badge badge-preorder">Pre-Order</span>
+            </div>
+            <div class="product-subgroup">Monitor Stands</div>
+            <h3 class="product-name">Freestanding Triple Ultra Monitor Stand</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$779</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00105-18-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="keyboard tray 00108-07-00">
+          <div>
+            <div class="product-header"><span class="product-code">00108-07-00</span></div>
+            <div class="product-subgroup">Device Mounts</div>
+            <h3 class="product-name">Sabelt Keyboard Tray</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$149</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00108-07-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="shifter handbrake plate 00108-05-00">
+          <div>
+            <div class="product-header"><span class="product-code">00108-05-00</span></div>
+            <div class="product-subgroup">Device Mounts</div>
+            <h3 class="product-name">Shifter &amp; Handbrake Plate</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$149</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00108-05-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Apparel & Equipment Category -->
+    <section class="category-group" data-cat="EQUIPMENTS">
+      <div class="category-title">
+        <span>Apparel &amp; Equipment</span>
+        <span class="category-count">18 Items</span>
+      </div>
+      <div class="product-grid">
+
+        <div class="product-card" data-search="sabelt sw1-r sim racing rim 00315-01-01">
+          <div>
+            <div class="product-header"><span class="product-code">00315-01-01</span></div>
+            <div class="product-subgroup">Sim Racing Rim</div>
+            <h3 class="product-name">Sabelt SW1-R Steering Wheel Rim</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$229</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00315-01-01" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt g32 sim gloves black 00319-02-01-blk">
+          <div>
+            <div class="product-header"><span class="product-code">00319-02-01-BLK</span></div>
+            <div class="product-subgroup">Sim Racing Gloves</div>
+            <h3 class="product-name">Sabelt G32 Sim Gloves — Black</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$79</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00319-02-01-BLK" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt g39 sim gloves black 00319-03-02-blk">
+          <div>
+            <div class="product-header">
+              <span class="product-code">00319-03-02-BLK</span>
+              <span class="badge badge-preorder">Pre-Order</span>
+            </div>
+            <div class="product-subgroup">Sim Racing Gloves</div>
+            <h3 class="product-name">Sabelt G39 Sim Gloves — Black</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$139</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00319-03-02-BLK" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt sim seatbelts black 00318-01-03-blk">
+          <div>
+            <div class="product-header"><span class="product-code">00318-01-03-BLK</span></div>
+            <div class="product-subgroup">Sim Racing Seatbelts</div>
+            <h3 class="product-name">Sabelt Sim Seatbelts — Black</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$239</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00318-01-03-BLK" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt sim floor mat 00316-01-00">
+          <div>
+            <div class="product-header"><span class="product-code">00316-01-00</span></div>
+            <div class="product-subgroup">Sim Racing Mats</div>
+            <h3 class="product-name">Sabelt Sim Floor Mat</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$149</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00316-01-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-search="sabelt sim racing hoodie 00319-05-00">
+          <div>
+            <div class="product-header"><span class="product-code">00319-05-00</span></div>
+            <div class="product-subgroup">Merchandise</div>
+            <h3 class="product-name">Sabelt Sim Racing Hoodie</h3>
+          </div>
+          <div class="product-footer">
+            <div><span class="product-price">$99</span><span class="map-tag">MAP</span></div>
+            <a href="contact.html?item=00319-05-00" class="inquire-btn">Inquire</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Dealer Banner -->
+    <div class="dealer-banner">
+      <h2>Custom Rig Building &amp; Commercial Integration</h2>
+      <p>Looking for a complete turn-key simulator package with custom PC build, motion system, and direct-drive setup? We handle sourcing, mounting, and calibration.</p>
+      <a href="contact.html" class="contact-cta-btn">Book a Consultation</a>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2026 New England Drive. All rights reserved.
+  </footer>
+
+  <script>
+    function filterCategory(cat) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const groups = document.querySelectorAll('.category-group');
+      groups.forEach(group => {
+        if (cat === 'ALL' || group.getAttribute('data-cat') === cat) {
+          group.style.display = 'block';
+        } else {
+          group.style.display = 'none';
+        }
+      });
+      searchCatalog();
+    }
+
+    function searchCatalog() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.product-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const searchText = card.getAttribute('data-search').toLowerCase();
+        const parentGroup = card.closest('.category-group');
+        const isCatVisible = parentGroup.style.display !== 'none';
+
+        if (isCatVisible && (query === '' || searchText.includes(query))) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const noResults = document.getElementById('noResults');
+      noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+    }
+  </script>
+
+</body>
+</html>
