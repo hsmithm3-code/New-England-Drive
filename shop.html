@@ -169,7 +169,7 @@
       box-shadow: 0 10px 25px rgba(43, 30, 22, 0.06);
     }
 
-   /* Clean, scalable logo bar */
+    /* Sabelt Yellow Badge Header */
     .brand-header-bar {
       display: flex;
       justify-content: space-between;
@@ -178,25 +178,17 @@
       height: 24px;
     }
 
-    .brand-logo-img {
-      height: 18px; /* Constrains height while preserving native aspect ratio */
-      width: auto;
-      display: block;
-      object-fit: contain;
-    }
-
     .sabelt-yellow-badge {
-      background-color: #FFD100; /* Official Sabelt Racing Yellow */
+      background-color: #FFD100;
       padding: 3px 8px;
       border-radius: 2px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
     }
 
     .sabelt-yellow-badge svg {
-      height: 14px; /* Perfectly sized logo height */
+      height: 12px;
       width: auto;
       display: block;
     }
@@ -362,7 +354,8 @@
 
     function renderProducts() {
       const grid = document.getElementById('productGrid');
-      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const searchInput = document.getElementById('searchInput');
+      const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
       grid.innerHTML = '';
 
       products.forEach(p => {
@@ -373,15 +366,14 @@
           
           let badgeHtml = p.note ? `<span class="badge ${p.note.toLowerCase().includes('pre-order') ? 'badge-preorder' : 'badge-limited'}">${p.note}</span>` : '';
           
-        let brandHeader = '';
+          let brandHeader = '';
           if (p.brand === 'Sabelt') {
             brandHeader = `
               <div class="brand-header-bar">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Sabelt_logo.svg" alt="Sabelt" class="brand-logo-img" onerror="this.outerHTML='<span class=\"sabelt-font-text\">Sabelt®</span>';">
-                <span class="product-code">${p.code}</span>
-              </div>
-            `;
-          } else {
+                <div class="sabelt-yellow-badge">
+                  <svg viewBox="0 0 1000 250" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 120 125 C 120 70, 200 60, 250 85 L 220 120 C 190 100, 160 105, 160 125 C 160 145, 230 140, 250 170 C 270 200, 200 220, 130 195 L 155 160 C 185 180, 210 175, 210 160 C 210 145, 140 145, 120 125 Z M 310 80 L 360 80 L 410 200 L 370 200 L 358 170 L 312 170 L 300 200 L 260 200 Z M 322 140 L 348 140 L 335 105 Z M 420 80 L 480 80 C 510 80, 530 95, 530 115 C 530 130, 520 140, 500 145 C 525 150, 535 165, 535 185 C 535 205, 510 200, 480 200 L 420 200 Z M 455 105 L 455 125 L 480 125 C 490 125, 495 120, 495 115 C 495 110, 490 105, 480 105 Z M 455 150 L 455 175 L 485 175 C 495 175, 500 170, 500 162 C 500 155, 495 150, 485 150 Z M 550 80 L 630 80 L 630 105 L 585 105 L 585 125 L 625 125 L 625 150 L 585 150 L 585 175 L 635 175 L 635 200 L 550 200 Z M 650 80 L 730 80 L 730 105 L 705 105 L 705 200 L 675 200 L 675 105 L 650 105 Z" fill="#000000"/>
+                  </svg>
                 </div>
                 <span class="product-code">${p.code}</span>
               </div>
@@ -424,11 +416,9 @@
     }
 
     function filterCatalog() { renderProducts(); }
-    
-    // Automatically renders the products as soon as the page loads
+
     window.addEventListener('DOMContentLoaded', renderProducts);
   </script>
 
 </body>
 </html>
-
