@@ -201,6 +201,16 @@
       .split-layout { grid-template-columns: 1fr; gap: 3rem; }
       .content-wrapper { padding-left: 0; }
     }
+    .hero-image {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+  
+  /* Blends top, bottom, left, and right edges smoothly into the background */
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+}
   </style>
   
 </head>
