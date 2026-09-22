@@ -14,7 +14,6 @@
       --border-color: #e2ddd5;    /* Soft neutral border */
       --card-bg: #ffffff;
       --font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
-      --sabelt-red: #e31b23;      /* Official Sabelt Red */
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -50,7 +49,7 @@
       text-decoration: none;
       font-size: 1.15rem;
       letter-spacing: 5px;
-      text-transform: capitalize;
+      text-transform: uppercase;
       font-weight: 400;
       line-height: 1.2;
     }
@@ -170,7 +169,7 @@
       box-shadow: 0 10px 25px rgba(43, 30, 22, 0.06);
     }
 
-    /* Sabelt Logo & Branding Badge */
+    /* Sabelt Logo & Branding Header */
     .brand-header-bar {
       display: flex;
       justify-content: space-between;
@@ -185,7 +184,6 @@
       object-fit: contain;
     }
 
-    /* Styling fallback font mimicking Sabelt racing typography */
     .sabelt-font-text {
       font-family: 'Arial Black', 'Impact', sans-serif;
       font-style: italic;
@@ -345,7 +343,7 @@
 
     let currentCategory = 'ALL';
 
-   function renderProducts() {
+    function renderProducts() {
       const grid = document.getElementById('productGrid');
       const query = document.getElementById('searchInput').value.toLowerCase().trim();
       grid.innerHTML = '';
@@ -358,46 +356,11 @@
           
           let badgeHtml = p.note ? `<span class="badge ${p.note.toLowerCase().includes('pre-order') ? 'badge-preorder' : 'badge-limited'}">${p.note}</span>` : '';
           
-          // Loads your uploaded PNG file from the images folder
           let brandHeader = '';
           if (p.brand === 'Sabelt') {
             brandHeader = `
               <div class="brand-header-bar">
-                <img src="images/sabelt-logo.png" alt="Sabelt" class="brand-logo-img" onerror="this.outerHTML='<span class=\"sabelt-font-text\">Sabelt®</span>';">
-                <span class="product-code">${p.code}</span>
-              </div>
-            `;
-          } else {
-            brandHeader = `
-              <div class="brand-header-bar">
-                <span class="sabelt-font-text">${p.brand}</span>
-                <span class="product-code">${p.code}</span>
-              </div>
-            `;
-          }
-
-          const card = document.createElement('div');
-          card.className = 'product-card';
-          card.innerHTML = `
-            <div>
-              ${brandHeader}
-              <div class="product-image-container">
-                <img src="${p.img}" alt="${p.name}" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200/fcfbf9/2b1e16?text=${encodeURIComponent(p.brand)}';">
-              </div>
-              ${badgeHtml ? `<div>${badgeHtml}</div>` : ''}
-              <h3 class="product-name">${p.name}</h3>
-            </div>
-            <div class="product-footer">
-              <span class="product-price">$${p.price.toLocaleString()}</span>
-              <a href="contact.html?item=${encodeURIComponent(p.code)}" class="inquire-btn">Inquire</a>
-            </div>
-          `;
-          grid.appendChild(card);
-        }
-      });
-    }
-              <div class="brand-header-bar">
-                <img src="images/sabelt-logo.png" alt="Sabelt" class="brand-logo-img" onerror="this.outerHTML='<span class=\"sabelt-font-text\">Sabelt®</span>';">
+                <img src="images/sabeltlogo.png" alt="Sabelt" class="brand-logo-img" onerror="this.outerHTML='<span class=\"sabelt-font-text\">Sabelt®</span>';">
                 <span class="product-code">${p.code}</span>
               </div>
             `;
@@ -439,8 +402,11 @@
     }
 
     function filterCatalog() { renderProducts(); }
+    
+    // Automatically renders the products as soon as the page loads
     window.addEventListener('DOMContentLoaded', renderProducts);
   </script>
 
 </body>
 </html>
+
