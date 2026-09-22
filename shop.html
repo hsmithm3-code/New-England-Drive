@@ -169,29 +169,20 @@
       box-shadow: 0 10px 25px rgba(43, 30, 22, 0.06);
     }
 
-    /* Sabelt Badge Bar */
+    /* Brand Header Bar */
     .brand-header-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 0.75rem;
-      height: 24px;
+      height: 22px;
     }
 
-    .sabelt-yellow-badge {
-      background-color: #FFD100; /* Sabelt Official Yellow */
-      padding: 3px 8px;
-      border-radius: 2px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .sabelt-svg-logo {
-      height: 12px;
+    .sabelt-logo-img {
+      height: 20px;
       width: auto;
       display: block;
-      fill: #111111;
+      object-fit: contain;
     }
 
     .brand-fallback-text {
@@ -339,15 +330,6 @@
   </footer>
 
   <script>
-    const sabeltSvg = `<svg class="sabelt-svg-logo" viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
-      <path d="M26.2 7.1 C22.1 4.2 16.2 3.8 11.2 5.2 C5.8 6.7 1.2 11.1 0.2 16.8 C-0.9 22.8 2.1 27.9 7.8 29.5 C13.2 31.0 19.8 29.7 24.5 26.8 C25.1 26.4 25.8 26.9 25.5 27.6 C24.8 29.1 23.9 30.6 22.8 32.0 C22.4 32.5 22.9 33.2 23.5 33.0 C31.1 30.4 36.8 24.1 37.8 16.0 C38.7 8.9 33.9 2.5 26.2 7.1 Z M12.8 24.2 C8.9 24.2 6.5 21.6 7.1 17.8 C7.7 14.0 11.2 11.5 15.1 11.5 C19.0 11.5 21.4 14.1 20.8 17.9 C20.2 21.7 16.7 24.2 12.8 24.2 Z" />
-      <path d="M48.0 5.0 L38.5 34.0 L48.2 34.0 L50.3 27.5 L60.5 27.5 L60.5 34.0 L70.0 34.0 L66.0 5.0 L48.0 5.0 Z M52.5 20.5 L55.2 12.0 L58.0 20.5 L52.5 20.5 Z" />
-      <path d="M73.0 5.0 L63.5 34.0 L85.0 34.0 C91.5 34.0 95.5 30.0 96.5 24.5 C97.2 20.5 95.0 17.5 91.0 16.2 C94.5 14.8 96.0 12.0 95.2 8.5 C94.0 3.5 88.5 5.0 82.0 5.0 L73.0 5.0 Z M81.5 13.0 L84.0 13.0 C86.0 13.0 87.0 14.2 86.6 16.0 C86.2 17.8 84.8 19.0 82.8 19.0 L80.0 19.0 L81.5 13.0 Z" />
-      <path d="M99.0 5.0 L89.5 34.0 L114.0 34.0 L116.5 26.5 L99.5 26.5 L101.5 20.5 L114.5 20.5 L117.0 13.0 L104.0 13.0 L106.0 5.0 L99.0 5.0 Z" />
-      <path d="M117.0 5.0 L107.5 34.0 L126.0 34.0 L128.5 26.5 L117.5 26.5 L124.5 5.0 L117.0 5.0 Z" />
-      <path d="M136.0 5.0 L133.5 12.5 L143.0 12.5 L136.0 34.0 L145.5 34.0 L152.5 12.5 L162.0 12.5 L164.5 5.0 L136.0 5.0 Z" />
-    </svg>`;
-
     const products = [
       { brand: "Sabelt", cat: "COCKPITS", code: "00000-03-01", name: "Sabelt S97 Cockpit — Grey", price: 679, note: "Discontinued", img: "images/s97-grey.png" },
       { brand: "Sabelt", cat: "COCKPITS", code: "00000-04-01", name: "Sabelt S99 EVO I Cockpit — Black", price: 1279, note: "", img: "images/s99-evo.png" },
@@ -379,9 +361,7 @@
           if (p.brand === 'Sabelt') {
             brandHeader = `
               <div class="brand-header-bar">
-                <div class="sabelt-yellow-badge">
-                  ${sabeltSvg}
-                </div>
+                <img src="images/Sabeltlogo.png" alt="Sabelt" class="sabelt-logo-img">
                 <span class="product-code">${p.code}</span>
               </div>
             `;
