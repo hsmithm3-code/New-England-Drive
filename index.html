@@ -3,372 +3,335 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New England Drive | Sim Racing Equipment Integration, Consultation & Coaching</title>
-  <meta name="description" content="New England Drive offers custom sim racing equipment integration, consultation, and driver coaching. Authorized Sabelt sim racing dealer.">
-  
+  <title>Shop — New England Drive</title>
   <style>
-    /* Reset & Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --bg-color: #f7f5f0;        /* Off-white */
+      --header-bg: #2b1e16;      /* Dark chocolate brown */
+      --header-text: #f7f5f0;    /* Off-white text */
+      --text-color: #2b1e16;      /* Dark chocolate body text */
+      --accent-color: #5c4333;    /* Warm muted brown accent */
+      --border-color: #e2ddd5;    /* Soft neutral border */
+      --font-family: 'Georgia', 'Garamond', 'Times New Roman', serif;
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #fcfbf9; /* Off-white background */
-      color: #2b1e1a; /* Dark chocolate text */
-      line-height: 1.6;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Header & Navigation */
+    /* Dark Chocolate Header */
     header {
-      background-color: #2b1e1a; /* Dark chocolate brown */
-      color: #fcfbf9;
-      padding: 20px 0;
-      border-bottom: 2px solid #3d2b25;
-    }
-    .header-container {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 2.25rem 3.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 1.6rem;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-    }
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 25px;
-    }
-    nav a {
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-    nav a:hover {
-      color: #e50914;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    /* Hero Split Section */
-    .hero-split {
+    .brand-container {
       display: flex;
+      flex-direction: column;
+    }
+
+    .logo-link {
+      color: var(--header-text);
+      text-decoration: none;
+      font-size: 1.15rem;
+      letter-spacing: 5px;
+      text-transform: capitalize;
+      font-weight: 400;
+      line-height: 1.2;
+      transition: opacity 0.3s ease;
+    }
+
+    .tagline {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--header-text);
+      opacity: 0.75;
+      margin-top: 0.25rem;
+      font-weight: 300;
+    }
+
+    .logo-link:hover { opacity: 0.8; }
+
+    nav a {
+      color: var(--header-text);
+      margin-left: 2.75rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a.active {
+      border-bottom: 1px solid var(--header-text);
+      padding-bottom: 4px;
+    }
+
+    nav a:hover { opacity: 0.75; }
+
+    /* Layout */
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+    }
+
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
       align-items: center;
-      justify-content: space-between;
-      padding: 70px 20px;
-      background-color: #2b1e1a; /* Dark chocolate theme */
-      color: #fcfbf9;
-      gap: 40px;
+      margin-bottom: 5rem;
     }
-    .hero-content {
-      flex: 1;
-      max-width: 550px;
-    }
-    .hero-image-container {
-      flex: 1;
-      text-align: center;
-    }
-    .hero-image-container img {
+
+    .image-wrapper {
       width: 100%;
-      max-width: 500px;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(43, 30, 22, 0.03);
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
       object-fit: cover;
     }
 
-    /* Sabelt Authorized Dealer Badge */
-    .dealer-badge {
-      display: inline-block;
-      background-color: rgba(255, 255, 255, 0.05);
-      border: 1px solid #e50914;
-      border-radius: 8px;
-      padding: 14px 22px;
-      margin-bottom: 25px;
+    .content-wrapper {
+      padding-left: 1rem;
     }
-    .sabelt-logo {
-      max-height: 36px;
-      width: auto;
-      margin-bottom: 10px;
-      display: block;
-    }
-    .badge-tag {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 700;
+
+    .sub-title {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #e50914;
-      margin-bottom: 2px;
-    }
-    .badge-subtext {
-      font-size: 0.85rem;
-      color: #dddddd;
-      margin: 0;
+      color: var(--accent-color);
+      margin-bottom: 1.25rem;
+      display: block;
     }
 
-    .hero-title {
-      font-size: 2.8rem;
-      margin-bottom: 15px;
-      font-family: Georgia, serif;
-      line-height: 1.2;
-    }
-    .hero-subtitle {
-      font-size: 1.15rem;
-      color: #cccccc;
-      margin-bottom: 30px;
+    h1 {
+      font-size: 2.25rem;
       font-weight: 300;
-    }
-    .cta-button {
-      display: inline-block;
-      padding: 14px 30px;
-      background-color: #e50914;
-      color: #ffffff;
-      font-weight: bold;
-      border-radius: 4px;
-      transition: background-color 0.2s ease, transform 0.2s ease;
-    }
-    .cta-button:hover {
-      background-color: #b80710;
-      transform: translateY(-2px);
+      letter-spacing: 1.5px;
+      line-height: 1.35;
+      margin-bottom: 1.75rem;
+      color: var(--text-color);
     }
 
-    /* Services Section */
-    .services-section {
-      padding: 80px 0;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 2.2rem;
-      font-family: Georgia, serif;
-      margin-bottom: 10px;
-      color: #2b1e1a;
-    }
-    .section-subtitle {
-      text-align: center;
-      color: #666;
-      margin-bottom: 50px;
+    .body-text {
       font-size: 1.05rem;
+      color: var(--text-color);
+      opacity: 0.9;
+      font-weight: 400;
     }
-    .services-grid {
+
+    /* Product Section */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-color);
+      margin-bottom: 2.5rem;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 4rem;
+    }
+
+    .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-bottom: 5rem;
     }
-    .service-card {
+
+    .product-card {
       background: #ffffff;
-      padding: 35px 25px;
-      border-radius: 8px;
-      border: 1px solid #e8e5e0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      text-decoration: none;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-    .service-icon {
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-    .service-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-      color: #2b1e1a;
-      font-family: Georgia, serif;
-    }
-    .service-card p {
-      color: #555;
-      font-size: 0.95rem;
-      line-height: 1.5;
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(43, 30, 22, 0.08);
     }
 
-    /* About / Mission Banner */
-    .about-banner {
-      background-color: #f3efe9;
-      padding: 70px 0;
-      border-top: 1px solid #e5dec3;
-      border-bottom: 1px solid #e5dec3;
-    }
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .about-content h2 {
-      font-family: Georgia, serif;
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-    .about-content p {
-      font-size: 1.1rem;
-      color: #444;
-      line-height: 1.7;
+    .product-thumb {
+      width: 100%;
+      height: 240px;
+      object-fit: contain;
+      background-color: #fafafa;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem;
     }
 
-    /* Footer */
-    footer {
-      background-color: #2b1e1a; /* Dark chocolate brown */
-      color: #cccccc;
-      padding: 50px 0 30px 0;
-      border-top: 2px solid #3d2b25;
-      font-size: 0.9rem;
+    .product-category {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
     }
-    .footer-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 30px;
-      margin-bottom: 40px;
+
+    .product-title {
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
     }
-    .footer-col h4 {
-      color: #fcfbf9;
-      font-family: Georgia, serif;
-      margin-bottom: 15px;
-      font-size: 1.1rem;
-    }
-    .footer-col ul {
-      list-style: none;
-    }
-    .footer-col li {
-      margin-bottom: 8px;
-    }
-    .footer-col a:hover {
-      color: #e50914;
-    }
-    .copyright {
-      text-align: center;
-      padding-top: 25px;
-      border-top: 1px solid #3d2b25;
-      color: #888888;
+
+    .product-summary {
       font-size: 0.85rem;
+      opacity: 0.8;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 850px) {
-      .hero-split {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-content {
-        max-width: 100%;
-      }
-      .sabelt-logo {
-        margin: 0 auto 10px auto;
-      }
-      .header-container {
-        flex-direction: column;
-        gap: 15px;
-      }
+    .btn-details {
+      align-self: start;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--header-bg);
+      border-bottom: 1px solid var(--header-bg);
+      padding-bottom: 2px;
+    }
+
+    /* Partner Section */
+    .partner-section {
+      padding-top: 3.5rem;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .partner-tag {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .partner-logo-container {
+      max-width: 220px;
+      margin: 0 auto;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    .partner-logo-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      mix-blend-mode: multiply;
+    }
+
+    .partner-desc {
+      font-size: 0.95rem;
+      color: var(--text-color);
+      opacity: 0.85;
+      margin-top: 1.25rem;
+      font-style: italic;
+    }
+
+    footer {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      text-align: center;
+      padding: 3.5rem 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 7rem;
+    }
+
+    @media (max-width: 900px) {
+      header { padding: 1.75rem 2rem; flex-direction: column; gap: 1.25rem; text-align: center; }
+      .brand-container { align-items: center; }
+      nav a { margin: 0 0.85rem; }
+      .split-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .product-grid { grid-template-columns: 1fr; }
+      .content-wrapper { padding-left: 0; }
+    }
+
+    img[src*="lmp3iracing.jpg"] {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 98%);
+      mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 98%);
     }
   </style>
 </head>
 <body>
 
-  <!-- Header / Navigation -->
   <header>
-    <div class="container header-container">
-      <div class="logo">New England Drive</div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop & Equipment</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+    <div class="brand-container">
+      <a href="index.html" class="logo-link">New England Drive</a>
+      <span class="tagline">Sim racing specialist</span>
     </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <!-- Split Hero Section -->
-  <section class="hero-split container">
-    <div class="hero-content">
-      <!-- Sabelt Authorized Dealer Badge -->
-      <div class="dealer-badge">
-        <img src="images/sabelt-logo.png" alt="Sabelt Sim Racing Logo" class="sabelt-logo" loading="lazy">
-        <span class="badge-tag">Authorized Dealer & Integration Partner</span>
-        <p class="badge-subtext">Official supplier of Sabelt sim racing cockpits, seats, and hardware.</p>
+  <main class="container">
+    <div class="split-layout">
+      <div class="image-wrapper">
+        <img src="lmp3iracing.jpg" alt="LMP3 Sim Racing">
       </div>
 
-      <h1 class="hero-title">New England Drive</h1>
-      <p class="hero-subtitle">Custom Sim Racing Equipment Integration, Hardware Sales & Driver Coaching</p>
-      <a href="shop.html" class="cta-button">Explore Shop & Equipment</a>
-    </div>
-
-    <div class="hero-image-container">
-      <img src="images/GALLERY_S99_0.jpg" alt="Sabelt Sim Racing Chassis" loading="lazy">
-    </div>
-  </section>
-
-  <!-- Services Grid -->
-  <section id="services" class="services-section">
-    <div class="container">
-      <h2 class="section-title">Our Services</h2>
-      <p class="section-subtitle">Turnkey sim racing solutions for enthusiasts, amateur competitors, and motorsport professionals.</p>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🏁</div>
-          <h3>Equipment & Hardware Sales</h3>
-          <p>Official Sabelt sim racing cockpits, ergonomic seats, monitor mounts, and specialized accessories engineered for high-torque direct drive rigs.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">🛠️</div>
-          <h3>Consultation & Integration</h3>
-          <p>Tailored rig architecture, component selection, space planning, and custom turn-key simulator installations for home or commercial spaces.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">🏎️</div>
-          <h3>Driver Coaching</h3>
-          <p>Telemetry analysis, driving technique refinement, track orientation, and set-up consultation drawing on real-world racing and sim experience.</p>
-        </div>
+      <div class="content-wrapper">
+        <span class="sub-title">Consultancy and premium hardware</span>
+        <h1>Welcome to New England Drive</h1>
+        <p class="body-text">
+          Through decades of sim racing experience, I advise new and seasoned sim racers on all aspects of sim racing from hardware/software to setup and coaching. Whether you're building your first sim setup or upgrading equipment, I provide tailored consultation, seamless integration, and high-value hardware crafted for performance.
+        </p>
       </div>
     </div>
-  </section>
 
-  <!-- About Overview Banner -->
-  <section class="about-banner">
-    <div class="container about-content">
-      <h2>Precision Sim Architecture</h2>
-      <p>At New England Drive, we bridge the gap between real-world motorsport and simulation. From selecting zero-flex aluminum chassis components to fine-tuning force feedback and pedal ergonomics, we help drivers maximize consistency, comfort, and pace.</p>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="container footer-container">
-      <div class="footer-col">
-        <h4>New England Drive</h4>
-        <p>Precision sim racing integration, equipment, and coaching.</p>
+    <section class="partner-section">
+      <span class="partner-tag">Authorized Dealer &amp; Integration Partner</span>
+      <div class="partner-logo-container">
+        <img src="images/Sabelt-logo.png" alt="Sabelt Sim Racing Authorized Dealer">
       </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop & Equipment</a></li>
-          <li><a href="#services">Services</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Authorized Partner</h4>
-        <p>Official Sabelt Sim Racing Equipment Dealer</p>
-      </div>
-    </div>
-    <div class="copyright">
-      <p>&copy; 2026 New England Drive. All rights reserved. Hosted via GitHub Pages at nedriveworks.com.</p>
-    </div>
+      <p class="partner-desc">Official supplier of Sabelt sim racing cockpits, seats, and hardware.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2026 New England Drive. All rights reserved.
   </footer>
 
 </body>
